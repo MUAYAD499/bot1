@@ -23,7 +23,7 @@ api_hash = os.environ['API_HASH']
 
 client = TelegramClient("bot", api_id, api_hash)
 
-targets = ["@tamkeenco1", "@fullmark13", "@tamkeenco3"]
+targets = ["@tamkeenco1", "@fullmark13", "@tamkeenco3", "@Top_r1"]
 
 keywords = [
     "يحل", "يسوي", "عرض", "بحث", "تكليف", "يعرف",
