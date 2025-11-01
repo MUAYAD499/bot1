@@ -3,7 +3,7 @@ from flask import Flask
 from threading import Thread
 import os
 
-# ====== سيرفر بسيط ليتلقى طلبات HTTP (حتى تبقي الخدمة نشطة على Render) ======
+# ====== سيرفر Flask لإبقاء الخدمة نشطة على Render ======
 app = Flask('')
 
 @app.route('/')
@@ -11,13 +11,14 @@ def home():
     return "I'm alive!"
 
 def run():
-    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 8080)))
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
 
 def keep_alive():
     t = Thread(target=run)
     t.start()
 
-# ====== إعدادات Telegram (من Environment Variables) ======
+# ====== إعدادات Telegram ======
 api_id = int(os.environ['API_ID'])
 api_hash = os.environ['API_HASH']
 
